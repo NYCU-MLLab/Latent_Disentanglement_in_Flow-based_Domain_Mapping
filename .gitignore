@@ -1,0 +1,9 @@
+*.pyc
+*.tar
+*.pt
+*.dat
+
+ad-flow/result/target_img
+mi-flow/result/target_img
+mi-flow/result/sample_test
+temp

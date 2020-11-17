@@ -9,7 +9,8 @@ Attribute decomposition flow used feature encoders to disentangle the latent vec
 ## Mutual Information Flow
 
 Mutual information flow introduced the information theory to the flow-based generative model formed an end-to-end training. We provided the relationship between the mutual information and latent disentanglement. Condition-relevant and condition-irrelevant mutual information help to strengthen the correlation between the separating latent variable and specific attribute. We also proved that minimizing the mutual information between observed inputs and latent outputs is equivalent to train the flow model to a certain extent. 
-![](https://i.imgur.com/Ko3Ij6b.png)
+
+<img src="https://i.imgur.com/Ko3Ij6b.png" width="400">
 
 # Getting start
 ## Environment
@@ -28,7 +29,7 @@ The related python packages are listed in `requirements.txt`.
 The dataset in the research we used is [Lip Reading in the Wild (LRW)](http://www.robots.ox.ac.uk/~vgg/data/lip_reading/). We only used the images for the training. For the dataset preprocessing, please reference this [repo](https://github.com/voletiv/lipreading-in-the-wild-experiments).
 
 The dataset file directory format must be in the following way:
-```bash
+```
 train
   ├── ABOUT
   |     ├── ABOUT_00001_01.jpg
@@ -72,6 +73,22 @@ $ python train.py -n <name>  [dataset directory]
 The argument `-n` control the saving folder name for the training result. The result would be saved in `./result/sample_<name>`
 
 # Testing
+## Pretrain model
+* Download the pretrained model [checkpoint](https://drive.google.com/drive/folders/1by8REbZTezl9nxsqYolNgzL7sjGoqXWM?usp=sharing).
+* Place all the checkpoint files in the `ad-flow` into the `./ad-flow/checkpoint/`
+* Place all the checkpoint files in the `mi-flow` into the `./mi-flow/checkpoint/`
+```
+ad-flow
+   ├── checkpoint
+   |     ├── ad-flow_total_checkpoint.tar
+   |     ├── glow_checkpoint.pt
+   |     └── shape_predictor_68_face_landmarks.dat
+mi-flow
+   └── checkpoint
+         └── mi-flow_total_checkpoint.pt 
+
+```
+
 The script `test.py` is used for generate the sample result. 
 
 The source image is in the directory of `./image/ref_img/` which contains two choices of input souce image [`trump` / `ellen`]. 

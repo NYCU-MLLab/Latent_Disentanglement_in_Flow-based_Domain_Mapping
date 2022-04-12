@@ -15,11 +15,11 @@ Mutual information flow introduced the information theory to the flow-based gene
 # Getting start
 ## Environment
 The developed environment is listed in below
-* OS : Ubuntu 16.04
-* CUDA : 10.0
-* Nvidia Driver : 410.78
-* Python 3.6
-* Pytorch 1.2.0
+* OS : Ubuntu 20.04
+* CUDA : 11.1
+* Nvidia Driver : 470.103.01
+* Python 3.8.1
+* Pytorch 1.9.0
 
 The related python packages are listed in `requirements.txt`.
 
@@ -27,6 +27,27 @@ The related python packages are listed in `requirements.txt`.
 ### Dataset
 
 The dataset in the research we used is [Lip Reading in the Wild (LRW)](http://www.robots.ox.ac.uk/~vgg/data/lip_reading/). We only used the images for the training. For the dataset preprocessing, please reference this [repo](https://github.com/voletiv/lipreading-in-the-wild-experiments).
+
+Set variables in process_lrw/process_lrw.py as following:
+```python=
+startSetWordNumber = 'test/ABOUT_00001'
+
+process_lrw(dataDir=LRW_DATA_DIR,
+    saveDir=LRW_SAVE_DIR,
+    startExtracting=False,
+    startSetWordNumber=startSetWordNumber,
+    endSetWordNumber=None,
+    copyTxtFile=False,
+    extractAudioFromMp4=False,
+    dontWriteAudioIfExists=False,
+    extractFramesFromMp4=True,
+    extractOnlyWordFrames=False,
+    writeFrameImages=True,
+    dontWriteFrameIfExists=True,
+    detectAndSaveMouths=False,
+    dontWriteMouthIfExists=False,
+    verbose=False)
+```
 
 The dataset file directory format must be in the following way:
 ```

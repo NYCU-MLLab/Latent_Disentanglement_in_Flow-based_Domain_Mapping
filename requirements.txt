@@ -1,6 +1,9 @@
-torch==1.2.0+cu92
-torchvision==0.4.0+cu92
-numpy==1.18.0
-Pillow==6.2.1
-dlib==19.4.0
-tqdm==4.41.0
+torch\==1.9.0+cu111
+torchvision\==0.10.0+cu111
+numpy\==1.18.0
+Pillow\==6.2.1
+Cmake
+dlib
+tqdm
+pandas
+scipy
